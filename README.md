@@ -1,1 +1,0 @@
-# F-XT-IXD_-_TechnologyII-Challenge_II
