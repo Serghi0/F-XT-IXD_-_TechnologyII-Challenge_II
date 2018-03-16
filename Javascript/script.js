@@ -53,8 +53,16 @@ timeline.to('.clouds', 1, { opacity: 1})
 function getTime() {
 	var d = new Date();
 	var time = d.toLocaleTimeString();
+	var hours = d.getHours();
+	if(hours==10){
+		console.log('yes');
+	}else{
+		console.log('lol');
+	}
 	return time;
 }
+
+
 
 window.onload = function(){
 	document.getElementById('clock').innerHTML = getTime();
