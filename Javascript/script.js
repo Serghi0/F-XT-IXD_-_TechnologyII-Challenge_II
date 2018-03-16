@@ -9,7 +9,7 @@
 	tl
 		.set(main, {autoAlpha:1})
 		.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:1}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
-		.to(clock,2, {fontSize:50, ease:Power4.easeOut}, '-=0.15'); //3,2,1 absolute position
+		.to(clock,2, {fontSize:40, ease:Power4.easeOut}, '-=0.15'); //3,2,1 absolute position
 
 //Loader Timeline
 	tlLoader
