@@ -1,11 +1,24 @@
-// For todays date;
-Date.prototype.today = function () { 
-    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+	var clock = document.getElementById('clock');
+	var tl = new TimelineMax();
+	tl.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:1}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
+			.to(clock,2, {fontSize:50, ease:Power4.easeOut}, '-=0.15'); //3,2,1 absolute position
+/*
+// set timeline
+var timeline = new TimelineMax({ repeat: -1, ease: Power0.easeNone });
+
+// amimate timeline
+timeline.to('.clouds', 1, { opacity: 1})
+		.from('.layer-1', 200, { backgroundPositionX: 2400}, 'clouds')
+		.from('.layer-2', 300, { backgroundPositionX: 1200}, 'clouds');
+*/
+
+
+function getTime() {
+	var d = new Date();
+	var time = d.toLocaleTimeString();
+	return time;
 }
 
-// For the time now
-Date.prototype.timeNow = function () {
-     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
-}
-
-document.getElementById('clock').innerHTML = "LastSync: " + new Date().today() + " @ " + new Date().timeNow();
+window.onload = function(){
+	document.getElementById('clock').innerHTML = getTime();
+};

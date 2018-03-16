@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Space X responsive clock</title>
-  <link rel="stylesheet" href="Styles/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space X responsive clock</title>
+    <link rel="stylesheet" href="Styles/style.css">
+  </head>
+  <body>
+    <header>
+        <div class="menutoggle">
+          <a href="#">&#9776;</a>
+        </div>
+        <div class="logo">
+          <img src="Images/SpaceX_Logo.svg" alt="logo van spaceX"/>
+        </div>
+    </header>
+    <main>
+    <div class="clouds layer-1"></div>
+    <div class="clouds layer-2"></div>
+      <div id="date"></div>
+      <div id="clock"></div>    
+    </main>
+    <footer>
 
-  <main>
-    <div id="clock"></div>    
-  </main>
+    </footer>
 
-
-
-</body>
-<script type="text/Javascript" src="Javascript/script.js"></script>
+    <script src="Javascript/TweenMax.min.js"></script>
+    <script type="text/Javascript" src="Javascript/script.js"></script>
+  </body>
 </html>
