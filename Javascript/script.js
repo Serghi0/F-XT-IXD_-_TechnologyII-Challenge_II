@@ -50,21 +50,30 @@ timeline.to('.clouds', 1, { opacity: 1})
 		.from('.layer-2', 300, { backgroundPositionX: 1200}, 'clouds');
 */
 
+function initiateClock() {
+
+	// init
+	getTime();
+
+	// run every second
+	setInterval(getTime, 1000);
+}
 
 function getTime() {
 	var d = new Date();
 	var time = d.toLocaleTimeString();
 	var hours = d.getHours();
-	if(hours==10){
+	document.getElementById('clock').innerHTML = time;
+	/*if(hours==10){
 		console.log('yes');
 	}else{
 		console.log('lol');
-	}
-	return time;
+	}*/
+	//return time;
 }
 
+initiateClock();
 
 
-window.onload = function(){
-	document.getElementById('clock').innerHTML = getTime();
-};
+	//console.log(sunrise);
+	
