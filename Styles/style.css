@@ -196,6 +196,7 @@ main{
 }
 
 #clock{
+	font-family: 'Press Start 2P', cursive;
 	grid-column-start: 1;
 	grid-column-end: 3;	
 	grid-row-start:2;
@@ -313,8 +314,8 @@ main{
 #clock{
 	grid-row-start:2; 
 	grid-row-end:2;
-	grid-column-start:2;
-	grid-column-end:2; 
+	grid-column-start:1;
+	grid-column-end:4; 
 }
 
 

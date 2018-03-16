@@ -62,18 +62,40 @@ function initiateClock() {
 function getTime() {
 	var d = new Date();
 	var time = d.toLocaleTimeString();
-	var hours = d.getHours();
+	//var hours = d.getHours();
 	document.getElementById('clock').innerHTML = time;
 	/*if(hours==10){
 		console.log('yes');
 	}else{
 		console.log('lol');
 	}*/
-	//return time;
+	return d;
+}
+
+function dynamicBackground(){
+/*	if(getTime().hours==10){
+		console.log('yes');
+	}else{
+		console.log('lol');
+	}
+*/
+var hour = getTime().getHours();
+var minutes = getTime().getMinutes();
+//console.log(hour + ' ' + minutes);
+	switch(true){
+		case(hour<7):
+		console.log('lol');
+		break;
+		case(hour>=10 && minutes>50):
+		console.log('yay');
+		break;
+		default:
+		console.log('ok');
+	}
 }
 
 initiateClock();
-
+dynamicBackground();
 
 	//console.log(sunrise);
 	
