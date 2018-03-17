@@ -103,22 +103,8 @@ function dynamicBackground(){
 		console.log('day');
 	}
 	
-/*
-	switch(true){
-		case((hour<5 && minutes>30) || hour>19):
-		//document.getElementById('clock').style.color ='white';
-		document.body.style.backgroundColor = "#001848";
-		console.log('lol');
-		break;
-		case(hour>=7 && hour<=17):
-		console.log('yay');
-		break;
-		default:
-		console.log('ok');
-	}*/
 }
 
 initiateClock();
 
-	//console.log(sunrise);
 	

@@ -87,54 +87,7 @@ header{
   text-decoration: none;
 }
 
-/*.active {
-  grid-template-columns: 140px 1fr 1fr;
-  transition: grid-template-columns 0.6s; /*doet het helaas nog niet*/
-/*}*/
 
-/*.inactive {
-  grid-template-columns: 0 1fr 1fr;
-  transition: grid-template-columns 0.6s; /*doet het helaas nog niet*/
-/*}*/
-
-/*
-  Nav styles
-*/
-/*
-nav {
-  overflow: hidden;
-  display: flex;
-  flex-flow: column;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul {
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  display: flex;
-  padding: 1em;
-  margin: 0;
-  list-style: none;
-  justify-content: center;
-  align-items: center; /* align vertical */
-  /*border-bottom: 1px solid black;
-}
-
-nav ul li:hover {
-  background-color: rgba(50, 50, 50, 0.5);
-}
-
-nav > ul > li > a {
-  color: #FFF;
-  text-decoration: none;
-}*/
 
 .logo{
 	grid-area:logo;
@@ -222,6 +175,7 @@ main{
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
+    align-self: center;
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */
 }
