@@ -87,10 +87,10 @@ function dynamicBackground(){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
 			console.log('dawn');
 		}
-	}else if((hours>6 && hours<7)||(hours>18 &&hours<19)){
+	}else if((hour>6 && hour<7)||(hour>18 &&hour<19)){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
 			console.log('dusk/dawn');		
-	}else if(hours==17){
+	}else if(hour==17){
 		if(minutes<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
 			console.log('day');
