@@ -5,13 +5,6 @@
 		main = document.getElementsByTagName('main'),
 		header = document.getElementsByTagName('header')
 		footer = document.getElementsByTagName('footer'),
-		p0 = document.getElementById('p0'),
-		p1 = document.getElementById('p1'),
-		p2 = document.getElementById('p2'),
-		p3 = document.getElementById('p3'),
-		p4 = document.getElementById('p4'),
-		p5 = document.getElementById('p5'),
-		p6 = document.getElementById('p6');
 
 		tlLoader = new TimelineMax({repeat:2, onComplete: loadContent});
 
@@ -20,13 +13,6 @@
 		.set(main, {autoAlpha:1})
 		.fromTo(header,1,{autoAlpha:0, y:-100}, {autoAlpha:1, y:0})
 		.fromTo(footer,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		/*.fromTo(p0,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.fromTo(p1,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.fromTo(p2,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.fromTo(p3,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.fromTo(p4,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.fromTo(p5,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.fromTo(p6,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')*/
 		.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
 		.to(clock,1, {fontSize:40, ease:Power4.easeOut}, '-=0.15');
 		 //3,2,1 absolute position
