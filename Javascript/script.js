@@ -59,6 +59,8 @@ var tlLoaderOut = new TimelineMax({onComplete: contentIn});
 
 function contentIn(){
 	tl.play();
+	dynamicBackground();
+
 }
 /*
 // set timeline
@@ -139,7 +141,6 @@ function dynamicBackground(){
 }
 
 initiateClock();
-dynamicBackground();
 
 	//console.log(sunrise);
 	
