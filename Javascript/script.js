@@ -54,19 +54,9 @@ function contentIn(){
 	tl.play();
 	dynamicBackground();
 	setInterval(dynamicBackground,1000);
-	createClouds();
 }
 
-function createClouds(){
 
-// set timeline
-var timeline = new TimelineMax({ repeat: -1, ease: Power0.easeNone });
-
-// amimate timeline
-timeline.to('.clouds', 0.5, { opacity: 1})
-		.from('.layer-1', 400, { backgroundPositionX: 2400}, 'clouds')
-		.from('.layer-2', 600, { backgroundPositionX: 1200}, 'clouds');
-}
 
 
 function initiateClock() {

@@ -113,6 +113,13 @@ main{
 	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: repeat(3,1fr) ;
 	grid-gap: 0px;
+	background-image:
+	radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+	radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+	radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+	radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+	background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+	background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;	
 	overflow:hidden;
 }
 
@@ -136,9 +143,6 @@ main{
 		border: 2px #222222 solid;
 	}
 
-.clouds{
-		background-image: url(../Images/clouds.png);
-}
 
 #earth{
 	justify-self: left;
@@ -146,6 +150,7 @@ main{
 	width:100%;
 	height:auto;
 	padding-left: 5%;
+	padding-bottom: 5%;
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 3;
@@ -159,6 +164,7 @@ main{
 	width:50%;
 	height:auto;
 	padding-right:5%;
+	padding-top: 5%;	
 	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 1;
@@ -347,7 +353,7 @@ footer{
 body{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
-	grid-template-rows: 0.125fr 1fr 0.125fr;
+	grid-template-rows: 0.5fr 5fr 0.5fr;
 	grid-row-gap: 0px;
 	margin:0;
 
