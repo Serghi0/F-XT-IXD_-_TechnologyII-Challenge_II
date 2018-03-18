@@ -63,9 +63,9 @@ function createClouds(){
 var timeline = new TimelineMax({ repeat: -1, ease: Power0.easeNone });
 
 // amimate timeline
-timeline.to('.clouds', 1, { opacity: 1})
-		.from('.layer-1', 300, { backgroundPositionX: 600}, 'clouds')
-		.from('.layer-2', 300, { backgroundPositionX: 600}, 'clouds');
+timeline.to('.clouds', 0.5, { opacity: 1})
+		.from('.layer-1', 400, { backgroundPositionX: 2400}, 'clouds')
+		.from('.layer-2', 600, { backgroundPositionX: 1200}, 'clouds');
 }
 
 
