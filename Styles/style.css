@@ -115,7 +115,7 @@ main{
 	grid-area:main;
 	display: grid;
 	grid-template-columns: repeat(2,1fr);
-	grid-template-rows: repeat(3,1fr) ;
+	grid-template-rows: 3fr 5fr 3fr ;
 	grid-gap: 0px;	
 	overflow: hidden;	
 }
@@ -231,7 +231,7 @@ footer{
 
 /*------------------mediaQueries------------------*/
 /*###########Medium Screen########################*/
-@media only screen and (min-width: 720px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) {
 body{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
@@ -259,7 +259,12 @@ main{
 	padding-right: 0;
 }
 
-
+#loader{
+	grid-row-start:2; 
+	grid-row-end:3;
+	grid-column-start:1;
+	grid-column-end:6;
+}
 
 #earth{
 	width:100%;
@@ -296,12 +301,7 @@ main{
 
 
 
-#loader{
-	grid-row-start:3; 
-	grid-row-end:4;
-	grid-column-start:1;
-	grid-column-end:3;
-}
+
 
 
 #clock{
@@ -314,14 +314,14 @@ main{
 /*--------------------Footer--------------------------*/
 
 footer{
-	height:100px;
+	height:150px;
 }
 
 }
 
 /*#############Big screen###########*/
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1200px) {
 body{
 	display: grid;
 	grid-template-columns: repeat(5,1fr);
@@ -397,8 +397,7 @@ main{
 #clock{
 	grid-row-start:3; 
 	grid-row-end:3;
-	grid-column-start:1;
-	grid-column-end:5; 
+	grid-column-end:span 5; 
 }
 
 
