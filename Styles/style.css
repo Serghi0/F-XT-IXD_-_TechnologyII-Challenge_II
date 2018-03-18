@@ -415,7 +415,7 @@ main{
 	grid-row-end:3;	
 	justify-self: right;
 	align-self: left;	
-    transform: rotate(-35deg);	
+    transform: rotate(-30deg);	
 }
 
 #clock{
