@@ -14,7 +14,7 @@
 		.fromTo(header,1,{autoAlpha:0, y:-100}, {autoAlpha:1, y:0})
 		.fromTo(footer,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
 		.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
-		.to(clock,1, {fontSize:40, ease:Power4.easeOut}, '-=0.15');
+		.to(clock,1, {fontSize:32, ease:Power4.easeOut}, '-=0.15');
 		 //3,2,1 absolute position
 
 //Loader Timeline
@@ -62,7 +62,7 @@ function initiateClock() {
 function getTime() {
 	var d = new Date();
 	var time = d.toLocaleTimeString();
-	document.getElementById('clock').innerHTML = time;
+	document.getElementById('clockDigits').innerHTML = time;
 	return d;
 }
 

@@ -167,6 +167,13 @@ main{
 	width: 100%;
 	height: auto;
 	display:flex;
+    align-self: center;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+}
+
+#clockDigits {
+	background-color: #222222;
 	color:white;
 	-webkit-text-stroke: 2px black;
 	   text-shadow:
@@ -175,9 +182,7 @@ main{
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
-    align-self: center;
-	justify-content: center; /* align horizontal */
-	align-items: center; /* align vertical */
+	border: 2px #222222 solid;
 }
 
 
@@ -249,7 +254,7 @@ footer{
 @media only screen and (min-width: 1024px) {
 body{
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: 0.125fr 1fr 0.125fr;
 	grid-row-gap: 10px;
 	margin:0;
@@ -270,7 +275,7 @@ main{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: repeat(3,1fr);
-	grid-gap: 15px;
+	grid-gap: 10px;
 	padding-left: 10%;
 	padding-right: 10%;
 
@@ -286,8 +291,8 @@ main{
 #clock{
 	grid-row-start:2; 
 	grid-row-end:2;
-	grid-column-start:1;
-	grid-column-end:4; 
+	grid-column-start:2;
+	grid-column-end:2; 
 }
 
 
