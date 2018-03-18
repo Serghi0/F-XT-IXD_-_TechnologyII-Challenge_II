@@ -42,7 +42,7 @@ body{
 	background-color: #C9CBCC;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 4fr 1fr;
+	grid-template-rows: 1fr 4fr auto;
 	grid-row-gap: 0px;
 	margin:0;
 	
@@ -118,7 +118,7 @@ main{
 	radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
 	background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
 	background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;	
-	overflow:hidden;
+	overflow: hidden;	
 }
 
 #loader{
@@ -249,7 +249,7 @@ footer{
 body{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 0.125fr 1fr 0.125fr;
+	grid-template-rows: 0.125fr 1fr auto;
 	grid-row-gap: 0px;
 	margin:0;
 
@@ -340,7 +340,7 @@ main{
 /*--------------------Footer--------------------------*/
 
 footer{
-	height:100%;
+	height:100px;
 }
 
 }
@@ -351,7 +351,7 @@ footer{
 body{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
-	grid-template-rows: 0.5fr 5fr 0.5fr;
+	grid-template-rows: 0.5fr 5fr auto;
 	grid-row-gap: 0px;
 	margin:0;
 
@@ -387,7 +387,7 @@ main{
 	justify-self: left;
 	align-self: left;
 	padding-left: 5px;	
-	width:50%;
+	width:40%;
 	height:auto;
 	grid-column-start: 1;
 	grid-column-end: 2;
@@ -399,7 +399,7 @@ main{
 	justify-self: right;
 	align-self: right;
 	padding-right: 5px;	
-	width:25%;
+	width:20%;
 	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 1;
@@ -407,7 +407,7 @@ main{
 }
 
 #rocket{
-	width:20%;
+	width:15%;
 	height:auto;
 	grid-column-start: 2;
 	grid-column-end: 3;
@@ -443,7 +443,7 @@ main{
 /*--------------------Footer--------------------------*/
 
 footer{
-	height:100%;
+	height:100px;
 }
 
 }

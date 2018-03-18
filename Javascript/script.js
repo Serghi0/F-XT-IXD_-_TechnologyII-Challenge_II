@@ -20,7 +20,7 @@
 		.fromTo(mars,1,{autoAlpha:0, x:100}, {autoAlpha:1, x:0}, '-=1')
 		.fromTo(clouds,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
 		.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
-		.to(clock,1, {fontSize:32, ease:Power4.easeOut}, '-=0.15') //3,2,1 absolute position		
+		.to(clock,1, {autoAlpha:1, fontSize:32, ease:Power4.easeOut}, '-=0.15') //3,2,1 absolute position		
 		.fromTo(rocket,4,{autoAlpha:0, x:-1000, y:1000}, {autoAlpha:1, x:0, y:0})
 		.fromTo(rocket,0.01,{x:-0.75}, {x:0.75, clearProps:"x", repeat:-1});
 
