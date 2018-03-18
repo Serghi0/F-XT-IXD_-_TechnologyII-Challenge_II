@@ -5,7 +5,8 @@
 		main = document.getElementsByTagName('main'),
 		header = document.getElementsByTagName('header')
 		footer = document.getElementsByTagName('footer'),
-
+		earth = document.getElementById('earth'),
+		clouds = document.getElementsByClassName('clouds'),
 		tlLoader = new TimelineMax({repeat:2, onComplete: loadContent});
 
 //Timeline
@@ -13,6 +14,8 @@
 		.set(main, {autoAlpha:1})
 		.fromTo(header,1,{autoAlpha:0, y:-100}, {autoAlpha:1, y:0})
 		.fromTo(footer,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
+		.fromTo(earth,1,{autoAlpha:0, x:100}, {autoAlpha:1, x:0})
+		.fromTo(clouds,1,{autoAlpha:0, x:-100}, {autoAlpha:1, x:0}, '-=1')
 		.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
 		.to(clock,1, {fontSize:32, ease:Power4.easeOut}, '-=0.15');
 		 //3,2,1 absolute position
@@ -46,7 +49,19 @@ var tlLoaderOut = new TimelineMax({onComplete: contentIn});
 function contentIn(){
 	tl.play();
 	dynamicBackground();
+	setInterval(dynamicBackground,1000);
+	createClouds();
+}
 
+function createClouds(){
+
+// set timeline
+var timeline = new TimelineMax({ repeat: -1, ease: Power0.easeNone });
+
+// amimate timeline
+timeline.to('.clouds', 1, { opacity: 1})
+		.from('.layer-1', 300, { backgroundPositionX: 2400}, 'clouds')
+		.from('.layer-2', 300, { backgroundPositionX: 1200}, 'clouds');
 }
 
 
@@ -71,36 +86,36 @@ function dynamicBackground(){
 		minutes = getTime().getMinutes(),
 		backgroundTl = new TimelineMax(),
 		body = document.getElementsByTagName('body');
-	console.log(hour + ':' + minutes);
+	//console.log(hour + ':' + minutes);
 	
 
 
 
 	if(hour<5  || hour>19 ){
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
-		console.log('night');
+		//console.log('night');
 	}else if(hour==5){
 		if(minutes<30){
  			backgroundTl.to(body,1,{backgroundColor:"#001848"});
-			console.log('night');
+			//console.log('night');
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			console.log('dawn');
+			//console.log('dawn');
 		}
 	}else if((hour>6 && hour<7)||(hour>18 &&hour<19)){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			console.log('dusk/dawn');		
+			//console.log('dusk/dawn');		
 	}else if(hour==17){
 		if(minutes<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
-			console.log('day');
+			//console.log('day');
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			console.log('dusk');
+			//console.log('dusk');
 		}
 	}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
-		console.log('day');
+		//console.log('day');
 	}
 	
 }

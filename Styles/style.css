@@ -10,8 +10,6 @@ html {
 *, 
 *:before,
 *:after{
-	  /*-webkit-box-sizing: border-box;
-       box-sizing: border-box;*/
        box-sizing: inherit;
 }
 
@@ -142,27 +140,45 @@ main{
 		border: 2px #222222 solid;
 	}
 
+.clouds{
+		background-image: url(../Images/clouds.png);
+		z-index: 1;
+}
+
+#earth{
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end:2;
+	display:flex;
+	justify-content: center; /* align horizontal */
+	align-items: right; /* align vertical */
+}
+
 #space1{
+	grid-column-start: 1;
+	grid-column-end:3;	
 	grid-row-start:1;
-	grid-row-end:1;
+	grid-row-end:3;
 }
 
 #space2{
-	grid-row-start:3;
-	grid-row-end:3;
+	grid-column-start: 1;
+	grid-column-end:3;
+	grid-row-start:2;
+	grid-row-end:4;
 }
 
 .spacebetween{
 
 }
 
-
 #clock{
 	font-family: 'Press Start 2P', cursive;
 	grid-column-start: 1;
 	grid-column-end: 3;	
-	grid-row-start:2;
-	grid-row-end:2;
+	grid-row-start:3;
+	grid-row-end:3;
 	text-align:center;
 	width: 100%;
 	height: auto;
@@ -170,6 +186,8 @@ main{
     align-self: center;
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */
+			z-index:1000;
+
 }
 
 #clockDigits {
@@ -223,9 +241,29 @@ main{
 	grid-template-columns: repeat(5,1fr);
 	grid-template-rows: repeat(3,1fr);
 	grid-gap: 15px;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-left: 0;
+	padding-right: 0;
+}
 
+#earth{
+	grid-column-start: 5;
+	grid-column-end: 6;
+	grid-row-start: 1;
+	grid-row-end:2;
+}
+
+#space1{
+	grid-column-start: 1;
+	grid-column-end:6;	
+	grid-row-start:1;
+	grid-row-end:3;
+}
+
+#space2{
+	grid-column-start: 1;
+	grid-column-end:6;
+	grid-row-start:2;
+	grid-row-end:4;
 }
 
 #loader{
@@ -278,9 +316,8 @@ main{
 	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: repeat(3,1fr);
 	grid-gap: 10px;
-	padding-left: 10%;
-	padding-right: 10%;
-
+	padding-left: 0;
+	padding-right: 0;
 }
 
 #loader{
@@ -290,11 +327,32 @@ main{
 	grid-column-end:2;
 }
 
+#earth{
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end:2;
+}
+
 #clock{
 	grid-row-start:2; 
 	grid-row-end:2;
 	grid-column-start:2;
 	grid-column-end:2; 
+}
+
+#space1{
+	grid-row-start:1;
+	grid-row-end:3;
+	grid-column-start:1;
+	grid-column-end:4;
+}
+
+#space2{
+	grid-row-start:2;
+	grid-row-end:4;
+	grid-column-start:1;
+	grid-column-end:4;	
 }
 
 
