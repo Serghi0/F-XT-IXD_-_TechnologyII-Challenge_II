@@ -239,7 +239,7 @@ main{
 footer{
 	z-index: 1000;
 	grid-area: footer;
-	height: 150px;
+	height: 100px;
 	background-color: #222222;
 }
 
