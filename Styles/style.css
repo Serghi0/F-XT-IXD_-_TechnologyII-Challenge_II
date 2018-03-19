@@ -97,7 +97,7 @@ header{
 	margin-right:auto;
 	margin-left: 5%;
 	display: flex;
-	justify-content: left; /* align horizontal */
+	justify-content: flex-start; /* align horizontal */
 	align-items: center; /* align vertical */
 }
 
@@ -142,8 +142,7 @@ main{
 
 
 #earth{
-	justify-self: left;
-	align-self: center;
+
 	width:100%;
 	height:auto;
 	padding-left: 5%;
@@ -156,8 +155,8 @@ main{
 }
 
 #mars{
-	justify-self: right;
-	align-self: right;
+	justify-self: flex-end;
+	align-self: flex-start;
 	width:50%;
 	height:auto;
 	padding-right:5%;
@@ -171,8 +170,8 @@ main{
 }						
 
 #rocket{
-	justify-self: left;
-	align-self: left;
+	justify-self: center;
+	align-self: flex-start;
 	width:25%;
 	height:auto;
 	grid-column-start: 2;
@@ -184,27 +183,37 @@ main{
     transform: rotate(-45deg);		
 }
 
-
-
-
-#clock{
-	font-family: 'Press Start 2P', cursive;
-	grid-column-start: 1;
+#date{
+	grid-column-start: 2;
 	grid-column-end: 3;	
-	grid-row-start:2;
-	grid-row-end:3;
+	grid-row-start:3;
+	grid-row-end:4;
+    align-self: left;
+	justify-content: center; /* align horizontal */
+	align-items: left; /* align vertical */
+}
+
+
+#clock,#date{
+	font-family: 'Press Start 2P', cursive;
 	text-align:center;
 	width: 100%;
 	height: auto;
 	display:flex;
+	z-index:1000;
+}
+
+#clock{
+	grid-column-start: 1;
+	grid-column-end: 3;	
+	grid-row-start:2;
+	grid-row-end:3;	
     align-self: center;
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */
-	z-index:1000;
-
 }
 
-#clockDigits {
+#clockDigits,#dateDigits {
 	background-color: #222222;
 	color:white;
 	-webkit-text-stroke: 2px black;
@@ -217,6 +226,11 @@ main{
 	border: 5px black solid;
 	border-radius: 5px;
 	padding:10px;
+}
+
+#dateDigits{
+	-webkit-text-stroke: 1px black;
+
 }
 
 
@@ -293,14 +307,23 @@ main{
 	grid-column-end: 5;
 	grid-row-start: 3;
 	grid-row-end:4;	
-	justify-self: left;
-	align-self: left;	
+	justify-self: flex-start;
+	align-self: flex-start;	
     transform: rotate(-45deg);	
 }
 
 
 
-
+#date{
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end:6;
+	display:flex;
+    align-self: left;
+	justify-content: flex-start; /* align horizontal */
+	align-items: left; /* align vertical */
+}
 
 
 
@@ -358,8 +381,6 @@ main{
 }
 
 #earth{
-	justify-self: left;
-	align-self: center;
 	padding-left: 5px;	
 	width:50%;
 	height: auto;
@@ -370,9 +391,7 @@ main{
 }
 
 #mars{
-	justify-self: right;
-	align-self: center;
-	padding-top: 0px;
+	padding-top: 5px;
 	padding-right: 5px;	
 	width:20%;
 	height:auto;
@@ -390,9 +409,21 @@ main{
 	grid-row-start: 3;
 	grid-row-end:4;	
 	justify-self: center;
-	align-self: left;	
+	align-self: flex-start;	
     transform: rotate(-20deg);	
 }
+
+#date{
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end:5;
+	display:flex; 
+	justify-content: flex-end; /* align horizontal */
+	align-items: center; /* align vertical */
+}
+
+
 
 #clock{
 	grid-row-start:3; 
