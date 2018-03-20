@@ -224,6 +224,8 @@ main{
 	font-size: 32px;
 	display:flex;
 	align-self: flex-end;
+	justify-self:center;
+	padding:10px 35px 10px 35px;
 }
 
 #buttonGroup{
@@ -232,7 +234,7 @@ main{
 	justify-content: center; /* align horizontal */
 	align-self: flex-start; /* align vertical */	
 	height:auto;
-	border: 5px black solid;
+	border: 1px black solid;
 	border-radius: 0 0 5px 5px;
 }
 
@@ -247,8 +249,8 @@ main{
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
-	border: 2px black solid;
-	padding:5px;
+	border: 5px black solid;
+	padding:2px 4px 2px 4px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;	
     cursor:pointer;
@@ -272,10 +274,10 @@ main{
       -1px 1px 0 #000,
        1px 1px 0 #000;
 	border: 5px black solid;
-	padding:10px;
 }
 
 .dateDigits{
+	padding:10px;
 	font-size: 14px;
 	border-radius: 5px;	
 	-webkit-text-stroke: 1px black;
@@ -458,7 +460,7 @@ main{
 	grid-row-end:3;	
 	justify-self: center;
 	align-self: flex-start;	
-    transform: rotate(-20deg);	
+    transform: rotate(-15deg);	
 }
 
 #date{
