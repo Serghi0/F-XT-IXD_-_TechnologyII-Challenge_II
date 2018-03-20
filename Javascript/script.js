@@ -74,12 +74,15 @@ function setTime(){
 	n2 = d.getUTCMinutes(minutes);
 
 
+
 switch(true){
 	case(document.getElementById('GMTDigits')!==null):
 		n1=n1;
 		document.getElementById('GMTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
 	case(document.getElementById('CETDigits')!==null):
+		if(n1==23){
+			n1=-1;}
 		n1= n1+1;
 		document.getElementById('CETDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
