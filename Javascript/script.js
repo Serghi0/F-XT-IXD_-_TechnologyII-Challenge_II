@@ -1,90 +1,235 @@
-	var clock = document.getElementById('clock'),
-		date = document.getElementById('date'),
-		tl = new TimelineMax({paused: true}),
-		dot = document.getElementsByClassName('dot'),
-		loader = document.getElementById('loader'),
-		main = document.getElementsByTagName('main'),
-		header = document.getElementsByTagName('header')
-		footer = document.getElementsByTagName('footer'),
-		earth = document.getElementById('earth'),
-		mars = document.getElementById('mars'),
-		rocket = document.getElementById('rocket'),
-		clouds = document.getElementsByClassName('clouds'),
-		tlLoader = new TimelineMax({repeat:2, onComplete: loadContent});
+var clock = document.getElementsByClassName('clockDigits'),
+	buttons = document.getElementById('buttonGroup'),
+	date = document.getElementById('date'),
+	tl = new TimelineMax({paused: true}),
+	dot = document.getElementsByClassName('dot'),
+	loader = document.getElementById('loader'),
+	main = document.getElementsByTagName('main'),
+	header = document.getElementsByTagName('header')
+	footer = document.getElementsByTagName('footer'),
+	earth = document.getElementById('earth'),
+	mars = document.getElementById('mars'),
+	rocket = document.getElementById('rocket'),
+	tlLoader = new TimelineMax({repeat:2, onComplete: loadContent});
 
 //Timeline
-	tl
-		.set(main, {autoAlpha:1})
-		.fromTo(earth,1,{autoAlpha:0, x:-100}, {autoAlpha:1, x:0})
-		.fromTo(mars,1,{autoAlpha:0, x:100}, {autoAlpha:1, x:0}, '-=1')
-		.fromTo(clouds,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')
-		.from(clock, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
-		.to(clock,1, {autoAlpha:1, fontSize:32, ease:Power4.easeOut}, '-=0.15') //3,2,1 absolute position		
-		.from(date, 1, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone, fontSize:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
-		.to(date,1, {autoAlpha:1, fontSize:14, ease:Power4.easeOut}, '-=0.15') //3,2,1 absolute position		
-		.fromTo(header,1,{autoAlpha:0, y:-100}, {autoAlpha:1, y:0})
-		.fromTo(footer,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')		
-		.fromTo(rocket,8,{autoAlpha:0, x:-1000, y:1000}, {autoAlpha:1, x:0, y:0})
-		.fromTo(rocket,0.01,{x:-0.75}, {x:0.75, clearProps:"x", repeat:-1});
+tl
+	.set(main, {autoAlpha:1})
+	.fromTo(earth,1,{autoAlpha:0, x:-100}, {autoAlpha:1, x:0})
+	.fromTo(mars,1,{autoAlpha:0, x:100}, {autoAlpha:1, x:0}, '-=1') //3,2,1 absolute position
+	.fromTo(clock, 1.25, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
+	.fromTo(buttons, 1.25, {autoAlpha:0, x:500, y:100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0},'-=1') //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
+	.fromTo(date, 1.25, {autoAlpha:0, x:-500, y:100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0},'-=1') //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
+	.fromTo(header,1,{autoAlpha:0, y:-100}, {autoAlpha:1, y:0})
+	.fromTo(footer,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')		
+	.fromTo(rocket,4,{autoAlpha:0, x:-1000, y:500}, {ease:Power4.easeInOut,autoAlpha:1, x:0, y:0})
+	.fromTo(rocket,0.01,{x:-0.75}, {x:0.75, clearProps:"x", repeat:-1,});
 
 //Loader Timeline
-	tlLoader
-		.staggerFromTo(dot, 0.3,
+tlLoader
+	.staggerFromTo(dot, 0.3,
 					{y: 0, autoAlpha:0},
 					{y: 20, autoAlpha: 1, ease:Back.easeInOut},
 					0.05
 					)
-		.fromTo(loader, 0.3,
+	.fromTo(loader, 0.3,
 				{autoAlpha:1, scale:1},
 				{autoAlpha:0, scale:0.7, ease:Power0.easeNone},
-				0.9
-				);
+				0.9);
 
 function loadContent(){
 var tlLoaderOut = new TimelineMax({onComplete: contentIn});
 	tlLoaderOut
-			.set(dot,{backgroundColor:'#222222'})
-			.to(loader, 0.3, {autoAlpha:1, scale:1, ease:Power0.easeNone})
-			.staggerFromTo(dot, 0.3,
-						{y: 0, autoAlpha:0},
-						{y: 20, autoAlpha: 1, ease:Back.easeInOut},
-						0.05, 
-						)
-			.to(loader, 0.3, {y:-150,x:-150,autoAlpha:0, ease:Back.easeIn},'+=0.3');
+		.set(dot,{backgroundColor:'#222222'})
+		.to(loader, 0.3, {autoAlpha:1, scale:1, ease:Power0.easeNone})
+		.staggerFromTo(dot, 0.3,
+					{y: 0, autoAlpha:0},
+					{y: 20, autoAlpha: 1, ease:Back.easeInOut},
+					0.05,)
+		.to(loader, 0.3, {y:-150,x:-150,autoAlpha:0, ease:Back.easeIn},'+=0.3');
 }		
 
 function contentIn(){
 	tl.play();
 	dynamicBackground();
-	setInterval(dynamicBackground,1000);
 }
-
-
-
 
 function initiateClock() {
-
 	// init
-	getTime();
-
+	setTime();
 	// run every second
-	setInterval(getTime, 1000);
+	setInterval(setTime, 1000);
 }
 
-function getTime() {
-	var d = new Date();
-	var time = d.toLocaleTimeString();
-	document.getElementById('clockDigits').innerHTML = time;
-	return d;
+	var d = new Date(),
+	hours = d.getHours(),
+	minutes =d.getMinutes();
+
+
+function setTime(){
+	var hour = hours,
+	d = new Date(),	
+	seconds = d.getSeconds(),	
+	n1 = d.getUTCHours(hour),
+	n2 = d.getUTCMinutes(minutes);
+
+
+switch(true){
+	case(document.getElementById('GMTDigits')!==null):
+		n1=n1;
+		document.getElementById('GMTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
+		return n1;
+	case(document.getElementById('CETDigits')!==null):
+		n1= n1+1;
+		document.getElementById('CETDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
+		return n1;
+	case(document.getElementById('ESTDigits')!==null):
+		n1= n1-5;	
+		document.getElementById('ESTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
+		return n1;
+	case(document.getElementById('EDTDigits')!==null):
+		n1= n1-4;
+		document.getElementById('EDTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
+		return n1;
+	case(document.getElementById('PDTDigits')!==null):
+		n1= n1-7;	
+		document.getElementById('PDTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
+		return n1;
+	default:
+		document.getElementById('defaultDigits').innerHTML = pad(hour,2) + ":" + pad(minutes,2) +":" + pad(seconds,2);
+		break;
+
+};
+
+console.log(n1+":"+n2+":"+seconds);
 }
 
-function pad(number, length) {
-   
+GMT.onclick =function(){
+	switch(true){
+	case(document.getElementById('defaultDigits')!==null):
+		document.getElementById("defaultDigits").id = "GMTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('CETDigits')!==null):
+		document.getElementById("CETDigits").id = "GMTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('ESTDigits')!==null):
+		document.getElementById("ESTDigits").id = "GMTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('EDTDigits')!==null):
+		document.getElementById("EDTDigits").id = "GMTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('PDTDigits')!==null):
+		document.getElementById("PDTDigits").id = "GMTDigits";
+		dynamicBackground();
+		break;					
+};
+	};
+CET.onclick =function(){
+	switch(true){
+	case(document.getElementById('defaultDigits')!==null):
+		document.getElementById("defaultDigits").id = "CETDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('GMTDigits')!==null):
+		document.getElementById("GMTDigits").id = "CETDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('ESTDigits')!==null):
+		document.getElementById("ESTDigits").id = "CETDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('EDTDigits')!==null):
+		document.getElementById("EDTDigits").id = "CETDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('PDTDigits')!==null):
+		document.getElementById("PDTDigits").id = "CETDigits";
+		dynamicBackground();
+		break;					
+};
+	};
+EST.onclick =function(){
+	switch(true){
+	case(document.getElementById('defaultDigits')!==null):
+		document.getElementById("defaultDigits").id = "ESTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('CETDigits')!==null):
+		document.getElementById("CETDigits").id = "ESTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('GMTDigits')!==null):
+		document.getElementById("GMTDigits").id = "ESTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('EDTDigits')!==null):
+		document.getElementById("EDTDigits").id = "ESTDigits";
+		dynamicBackground();		
+		break;
+	case(document.getElementById('PDTDigits')!==null):
+		document.getElementById("PDTDigits").id = "ESTDigits";
+		dynamicBackground();		
+		break;					
+};
+	};
+EDT.onclick =function(){
+	switch(true){
+	case(document.getElementById('defaultDigits')!==null):
+		document.getElementById("defaultDigits").id = "EDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('CETDigits')!==null):
+		document.getElementById("CETDigits").id = "EDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('ESTDigits')!==null):
+		document.getElementById("ESTDigits").id = "EDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('GMTDigits')!==null):
+		document.getElementById("GMTDigits").id = "EDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('PDTDigits')!==null):
+		document.getElementById("PDTDigits").id = "EDTDigits";
+		dynamicBackground();
+		break;					
+};
+	};
+PDT.onclick =function(){
+	switch(true){
+	case(document.getElementById('defaultDigits')!==null):
+		document.getElementById("defaultDigits").id = "PDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('CETDigits')!==null):
+		document.getElementById("CETDigits").id = "PDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('ESTDigits')!==null):
+		document.getElementById("ESTDigits").id = "PDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('EDTDigits')!==null):
+		document.getElementById("EDTDigits").id = "PDTDigits";
+		dynamicBackground();
+		break;
+	case(document.getElementById('GMTDigits')!==null):
+		document.getElementById("GMTDigits").id = "PDTDigits";
+		dynamicBackground();
+		break;					
+	};
+};			
+	
+function pad(number, length) { 
     var str = '' + number;
     while (str.length < length) {
         str = '0' + str;
     }
-   
     return str;
 }
 
@@ -94,7 +239,7 @@ function getDate(){
 		dd = d.getDate(),
 		yy = d.getFullYear();
 		document.getElementById('dateDigits').innerHTML = pad(dd,2) + '-' + pad(mm,2) +'-' + pad(yy,4);
-		console.log(pad(dd,2) + '-' + pad(mm,2) +'-' + pad(yy,4));
+		//console.log(pad(dd,2) + '-' + pad(mm,2) +'-' + pad(yy,4));
 		return d;
 }
 
@@ -104,59 +249,54 @@ function initiateDate(){
 }
 
 function dynamicBackground(){
-	var hour = getTime().getHours(),
-		minutes = getTime().getMinutes(),
+	var hour = setTime(),
 		backgroundTl = new TimelineMax(),
 		body = document.getElementsByTagName('body');
-	//console.log(hour + ':' + minutes);
-	
-
-
 
 	if(hour<5  || hour>19 ){
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
-		//console.log('night');
 	}else if(hour==19){
 		if(minutes<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			//console.log('dusk');
 		}else{
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
-		//console.log('night');
 		}
 	}else if(hour==5){
 		if(minutes<30){
  			backgroundTl.to(body,1,{backgroundColor:"#001848"});
-			//console.log('night');
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			//console.log('dawn');
 		}
 	}else if((hour>=6 && hour<7)||(hour>=18 &&hour<19)){
-		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			//console.log('dusk/dawn');		
+		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});		
 	}else if(hour==7){
 		if(minutes<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			//console.log('dawn');
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
-			//console.log('day');
 		}
 	}else if(hour==17){
 		if(minutes<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
-			//console.log('day');
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
-			//console.log('dusk');
 		}
 	}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
-		//console.log('day');
-	}
-	
+	}	
 }
 
+function activeButton(){
+var buttonGroup = document.getElementById("buttonGroup");
+var btns = buttonGroup.getElementsByClassName("buttons");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+}
 initiateClock();
 initiateDate();
+activeButton();

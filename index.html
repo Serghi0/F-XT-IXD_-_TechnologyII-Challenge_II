@@ -22,14 +22,25 @@
         </div>
     </header>
     <main>
-      <section id="clock"><p id="clockDigits"></p></section>
-      <section id="date"><p id="dateDigits"></p></section> 
+      <section id="clock">
+        <p id="defaultDigits"  class="digits clockDigits"></p>
+        <section id="buttonGroup">
+          <button id="GMT" class="buttons" >GMT</button>
+          <button id="CET" class="buttons active" >CET</button>
+          <button id="EST" class="buttons" >EST</button>
+          <button id="EDT" class="buttons" >EDT</button>
+          <button id="PDT" class="buttons" >PDT</button>
+        </section>
+      </section>
+      <section id="date">
+        <p id="dateDigits" class="digits dateDigits"></p>
+      </section> 
       <img src="Images/earth.svg" alt="Earth" id="earth">       
         <!--Earth icon made by (https://www.flaticon.com/authors/vectors-market), "Vectors Market" from www.flaticon.com -->
       <img src="Images/mars.svg" alt="Mars" id="mars">
         <!--Mars icon made by (http://creativecommons.org/licenses/by/3.0/), "Creative Commons BY 3.0"  from www.flaticon.com-->
-      <img src="Images/rocket.svg" alt="Rocket" id="rocket" class="rocketMove shake-little">
-        <!--Rocket icon made by "http://www.freepik.com", "Freepik" from www.flaticon.com/"-->      
+      <img src="Images/rocket.svg" alt="Rocket" id="rocket" class="rocketMove">
+        <!--Rocket icon made by "http://www.freepik.com", "Freepik" from www.flaticon.com/"-->        
     </main>
     <footer>
 
