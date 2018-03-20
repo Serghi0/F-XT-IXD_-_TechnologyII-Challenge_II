@@ -225,7 +225,7 @@ main{
 	display:flex;
 	align-self: flex-end;
 	justify-self:center;
-	padding:10px 35px 10px 35px;
+	padding:10px 34px 10px 34px;
 }
 
 #buttonGroup{
@@ -234,7 +234,6 @@ main{
 	justify-content: center; /* align horizontal */
 	align-self: flex-start; /* align vertical */	
 	height:auto;
-	border: 1px black solid;
 	border-radius: 0 0 5px 5px;
 }
 
