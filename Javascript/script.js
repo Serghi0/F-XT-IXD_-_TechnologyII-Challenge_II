@@ -97,7 +97,7 @@ switch(true){
 		return n1;
 	default:
 		document.getElementById('defaultDigits').innerHTML = pad(hour,2) + ":" + pad(minutes,2) +":" + pad(seconds,2);
-		break;
+		return hour;
 
 };
 
