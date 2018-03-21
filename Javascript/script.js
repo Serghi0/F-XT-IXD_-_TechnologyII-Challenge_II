@@ -51,15 +51,20 @@ var tlLoaderOut = new TimelineMax({onComplete: contentIn});
 
 function contentIn(){
 	tl.play();
-	dynamicBackground();
+	initiate();
 }
 
-function initiateClock() {
+function initiate() {
 	// init
 	setTime();
 	// run every second
 	setInterval(setTime, 1000);
+	dynamicBackground();
+	setInterval(dynamicBackground,1000);
+	getDate();
+	setInterval(getDate, 1000);	
 }
+
 
 	var d = new Date(),
 	hours = d.getHours(),
@@ -73,8 +78,6 @@ function setTime(){
 	n1 = d.getUTCHours(hour),
 	n2 = d.getUTCMinutes(minutes);
 
-
-
 switch(true){
 	case(document.getElementById('GMTDigits')!==null):
 		n1=n1;
@@ -87,15 +90,33 @@ switch(true){
 		document.getElementById('CETDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
 	case(document.getElementById('ESTDigits')!==null):
+		if(n1==0){n1=24;}
+		else if(n1==1){n1=25}
+		else if(n1==2){n1=26}
+		else if(n1==3){n1=27}
+		else if(n1==4){n1=28}
+		else if(n1==5){n1=29};			
 		n1= n1-5;	
 		document.getElementById('ESTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
 	case(document.getElementById('EDTDigits')!==null):
+		if(n1==0){n1=24;}
+		else if(n1==1){n1=25}
+		else if(n1==2){n1=26}
+		else if(n1==3){n1=27}
+		else if(n1==4){n1=28}
+		else if(n1==5){n1=29};
 		n1= n1-4;
 		document.getElementById('EDTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
 	case(document.getElementById('PDTDigits')!==null):
-		n1= n1-7;	
+		if(n1==0){n1=24;}
+		else if(n1==1){n1=25}
+		else if(n1==2){n1=26}
+		else if(n1==3){n1=27}
+		else if(n1==4){n1=28}
+		else if(n1==5){n1=29};
+			n1= n1-7;	
 		document.getElementById('PDTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
 	default:
@@ -103,8 +124,6 @@ switch(true){
 		return hour;
 
 };
-
-console.log(n1+":"+n2+":"+seconds);
 }
 
 GMT.onclick =function(){
@@ -246,10 +265,7 @@ function getDate(){
 		return d;
 }
 
-function initiateDate(){
-	getDate();
-	setInterval(getDate, 1000);
-}
+
 
 function dynamicBackground(){
 	var hour = setTime(),
@@ -259,7 +275,7 @@ function dynamicBackground(){
 	if(hour<5  || hour>19 ){
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
 	}else if(hour==19){
-		if(minutes<30){
+		if(minutes<=30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
 		}else{
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
@@ -300,6 +316,5 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 }
-initiateClock();
-initiateDate();
+
 activeButton();

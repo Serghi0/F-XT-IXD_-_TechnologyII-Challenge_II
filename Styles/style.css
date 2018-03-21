@@ -362,8 +362,6 @@ main{
     transform: rotate(-45deg);	
 }
 
-
-
 #date{
 	grid-column-start: 2;
 	grid-column-end: 4;
