@@ -5,7 +5,7 @@ var clock = document.getElementsByClassName('clockDigits'),
 	dot = document.getElementsByClassName('dot'),
 	loader = document.getElementById('loader'),
 	main = document.getElementsByTagName('main'),
-	header = document.getElementsByTagName('header')
+	header = document.getElementsByTagName('header'),
 	footer = document.getElementsByTagName('footer'),
 	earth = document.getElementById('earth'),
 	mars = document.getElementById('mars'),
@@ -20,8 +20,8 @@ tl
 	.fromTo(clock, 1.25, {autoAlpha:0, x:-500, y:-100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0}) //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
 	.fromTo(buttons, 1.25, {autoAlpha:0, x:500, y:100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0},'-=1') //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
 	.fromTo(date, 1.25, {autoAlpha:0, x:-500, y:100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0},'-=1') //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
-	.fromTo(header,1,{autoAlpha:0, y:-100}, {autoAlpha:1, y:0})
-	.fromTo(footer,1,{autoAlpha:0, y:100}, {autoAlpha:1, y:0}, '-=1')		
+	.fromTo(header,1,{autoAlpha:0, y:-10}, {autoAlpha:1, y:0})
+	.fromTo(footer,1,{autoAlpha:0, y:10}, {autoAlpha:1, y:0}, '-=1')		
 	.fromTo(rocket,4,{autoAlpha:0, x:-1000, y:500}, {ease:Power4.easeInOut,autoAlpha:1, x:0, y:0})
 	.fromTo(rocket,0.01,{x:-0.75}, {x:0.75, clearProps:"x", repeat:-1,});
 
@@ -66,16 +66,15 @@ function initiate() {
 }
 
 
-	var d = new Date(),
-	hours = d.getHours(),
-	minutes =d.getMinutes();
+
 
 
 function setTime(){
-	var hour = hours,
-	d = new Date(),	
+	var d = new Date(),	
+	hours = d.getHours(),
+	minutes =d.getMinutes(),
 	seconds = d.getSeconds(),	
-	n1 = d.getUTCHours(hour),
+	n1 = d.getUTCHours(hours),
 	n2 = d.getUTCMinutes(minutes);
 
 switch(true){
@@ -115,13 +114,14 @@ switch(true){
 		else if(n1==2){n1=26}
 		else if(n1==3){n1=27}
 		else if(n1==4){n1=28}
-		else if(n1==5){n1=29};
+		else if(n1==5){n1=29}
+		else if(n1==6){n1=30};			
 			n1= n1-7;	
 		document.getElementById('PDTDigits').innerHTML = pad(n1,2) + ":" + pad(n2,2) +":" + pad(seconds,2);
 		return n1;
 	default:
-		document.getElementById('defaultDigits').innerHTML = pad(hour,2) + ":" + pad(minutes,2) +":" + pad(seconds,2);
-		return hour;
+		document.getElementById('defaultDigits').innerHTML = pad(hours,2) + ":" + pad(minutes,2) +":" + pad(seconds,2);
+		return hours;
 
 };
 }
@@ -269,19 +269,21 @@ function getDate(){
 
 function dynamicBackground(){
 	var hour = setTime(),
+		d= new Date(),
+		minutez = d.getMinutes(),
 		backgroundTl = new TimelineMax(),
 		body = document.getElementsByTagName('body');
 
 	if(hour<5  || hour>19 ){
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
 	}else if(hour==19){
-		if(minutes<=30){
+		if(minutez<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
 		}else{
  	backgroundTl.to(body,1,{backgroundColor:"#001848"});
 		}
 	}else if(hour==5){
-		if(minutes<30){
+		if(minutez<30){
  			backgroundTl.to(body,1,{backgroundColor:"#001848"});
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
@@ -289,13 +291,13 @@ function dynamicBackground(){
 	}else if((hour>=6 && hour<7)||(hour>=18 &&hour<19)){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});		
 	}else if(hour==7){
-		if(minutes<30){
+		if(minutez<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
 		}
 	}else if(hour==17){
-		if(minutes<30){
+		if(minutez<30){
 		 	backgroundTl.to(body,1,{backgroundColor:"#87ceeb"});
 		}else{
 		 	backgroundTl.to(body,1,{backgroundColor:"#fec5b9"});

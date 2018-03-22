@@ -68,7 +68,7 @@ header{
 	max-width: 100%;
 	background-color: #222222;
 	display: grid;
-	grid-template columns: 1fr 0.25fr;
+	grid-template-columns: 1fr 0.25fr;
 	grid-gap:0;
 	grid-template-areas:
 	"logo menutoggle";
