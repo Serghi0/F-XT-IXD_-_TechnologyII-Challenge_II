@@ -22,7 +22,7 @@ tl
 	.fromTo(date, 1.25, {autoAlpha:0, x:-500, y:100, ease:Back.easeNone},{autoAlpha:1, ease:Power4.easeOut,x:0,y:0},'-=1') //ease:Power0.easeNone, easeOut, easeIn, Power1 or 2 or 3 or 4
 	.fromTo(header,1,{autoAlpha:0, y:-10}, {autoAlpha:1, y:0})
 	.fromTo(footer,1,{autoAlpha:0, y:10}, {autoAlpha:1, y:0}, '-=1')		
-	.fromTo(rocket,4,{autoAlpha:0, x:-1000, y:500}, {ease:Power4.easeInOut,autoAlpha:1, x:0, y:0})
+	.fromTo(rocket,3,{autoAlpha:0, x:-1000, y:500}, {ease:Power4.easeInOut,autoAlpha:1, x:0, y:0})
 	.fromTo(rocket,0.01,{x:-0.75}, {x:0.75, clearProps:"x", repeat:-1,});
 
 //Loader Timeline
