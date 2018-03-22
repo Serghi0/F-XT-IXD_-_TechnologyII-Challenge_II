@@ -253,6 +253,7 @@ main{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;	
     cursor:pointer;
+    margin:0px;
 }
 
 .active, .buttons:hover{
