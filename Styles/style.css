@@ -38,6 +38,8 @@ html {
 /*---------------------------body--------------------------*/
 
 body{
+	height: 100vh;
+	width: 100vw;
 	background-color: #C9CBCC;
 	background-image:
 	radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -48,7 +50,7 @@ body{
 	background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;	
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 0.5fr 4fr 0.5fr;
+	grid-template-rows: 1fr 8fr 1fr;
 	grid-row-gap: 0px;
 	margin:0;
 	
@@ -396,7 +398,7 @@ footer{
 body{
 	display: grid;
 	grid-template-columns: repeat(5,1fr);
-	grid-template-rows: 75px 1fr 75px;
+	grid-template-rows: 1fr 10fr 1fr;
 	grid-row-gap: 0px;
 	margin:0;
 
